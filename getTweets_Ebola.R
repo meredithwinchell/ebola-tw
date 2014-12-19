@@ -1,5 +1,5 @@
 # get tweets with a hashtag -> for date since = n, until = n + 1d
-getTweets <- searchTwitter("#Ebola", n=10000, since="2014-12-17",until="2014-12-18")
+getTweets <- searchTwitter("#Ebola", n=10000, since="2014-12-18", until="2014-12-19")
 # get text of each tweet
 getTweets_txt <- sapply(getTweets, function(x) x$getText())
 # get info on whether the tweet is a retweet
@@ -11,5 +11,5 @@ getTweets_date <- as.Date(getTweets_date,format="%Y%m%d")
 getTweets_df <- data.frame(date = getTweets_date, text = getTweets_txt, rt = getTweets_rt)
 table(getTweets_df$date)
 # save data
-save(getTweets_df,file="getTweets_df_20141217.Rdata")
-write.csv(getTweets_df, "getTweets_df_20141217.csv")
+save(getTweets_df,file="getTweets_df_20141218.Rdata")
+write.csv(getTweets_df, "getTweets_df_20141218.csv")
